@@ -5,7 +5,7 @@ rec {
   pgquarrel     = pkgs.callPackage ./pkgs/pgquarrel     {};
   powder        = pkgs.callPackage ./pkgs/powder        {};
   sentencepiece = pkgs.callPackage ./pkgs/sentencepiece {};
-  wrq2          = pkgs.callPackage ./pkgs/wrq2          {};
+  wrk2          = pkgs.callPackage ./pkgs/wrk2          {};
   xrandr        = pkgs.callPackage ./pkgs/xrandr        {};
 
   sentencepiece-python = p:
@@ -18,7 +18,7 @@ rec {
   everything = pkgs.stdenv.mkDerivation {
     name = "xzfc-nix-everything";
     buildInputs = [
-      drake-clj libstrangle pgquarrel powder sentencepiece wrq2 xrandr
+      drake-clj libstrangle pgquarrel powder sentencepiece wrk2 xrandr
       (pkgs.python37.withPackages (p:[
         (sentencepiece-python p)
       ]))
