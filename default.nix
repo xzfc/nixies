@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
 rec {
+  biomake       = pkgs.callPackage ./pkgs/biomake       {};
   drake-clj     = pkgs.callPackage ./pkgs/drake-clj     {};
   libstrangle   = pkgs.callPackage ./pkgs/libstrangle   {};
   pgquarrel     = pkgs.callPackage ./pkgs/pgquarrel     {};
@@ -18,7 +19,7 @@ rec {
   everything = pkgs.stdenv.mkDerivation {
     name = "xzfc-nix-everything";
     buildInputs = [
-      drake-clj libstrangle pgquarrel powder sentencepiece wrk2 xrandr
+      biomake drake-clj libstrangle pgquarrel powder sentencepiece wrk2 xrandr
       (pkgs.python37.withPackages (p:[
         (sentencepiece-python p)
       ]))
