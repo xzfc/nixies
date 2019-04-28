@@ -1,0 +1,13 @@
+diff --git a/src/audio.c b/src/audio.c
+index 20ed215..4674e8f 100644
+--- a/src/audio.c
++++ b/src/audio.c
+@@ -112,7 +112,7 @@ int IsBackgroundMusicFile(char *buffer, int track, char *suffix)
+ void PlayBackgroundMusic(int track)
+ {
+ 	/* Setup variables */
+-	char filename[64];
++	char filename[1024];
+ 	int found_track = 0;
+ 
+ 	/* See if we have a file of the appropriate type. */
