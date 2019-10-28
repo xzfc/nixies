@@ -1,6 +1,6 @@
-{ stdenv, fetchFromGitLab, SDL, SDL_image, zlib, SDL_mixer, gettext, intltool }:
+{ SDL, SDL_image, SDL_mixer, fetchFromGitLab, gettext, intltool, stdenv, zlib }:
 stdenv.mkDerivation rec {
-  name = "meritous-${version}";
+  pname = "meritous";
   version = "1.5";
 
   src = fetchFromGitLab {
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   patches = [ ./fix-audio.patch ];
 
-  buildInputs = [ SDL SDL_image zlib SDL_mixer gettext intltool ];
+  buildInputs = [ SDL SDL_image SDL_mixer gettext intltool zlib ];
 
   buildPhase = "make prefix=$out";
 
@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "action-adventure dungeon crawl game";
-    homepage = https://gitlab.com/meritous/meritous;
+    homepage = "https://gitlab.com/meritous/meritous";
     license = stdenv.lib.licenses.gpl3Plus;
     maintainers = [ stdenv.lib.maintainers.xzfc ];
     platforms = stdenv.lib.platforms.all;

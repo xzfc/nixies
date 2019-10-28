@@ -1,6 +1,6 @@
 { stdenv, fetchurl, SDL }:
 stdenv.mkDerivation rec {
-  name = "powder-${version}";
+  pname = "powder";
   version = "118";
   src = fetchurl {
     url = "http://www.zincland.com/powder/release/powder${version}_src.tar.gz";
@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   '';
   meta = with stdenv.lib; {
     description = "A graphical roguelike game";
-    homepage = http://www.zincland.com/powder/index.php;
+    homepage = "http://www.zincland.com/powder/index.php";
     license = licenses.unfreeRedistributable; # Creative Commons Sampling Plus
     maintainers = [ maintainers.xzfc ];
     platforms = platforms.linux;

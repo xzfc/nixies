@@ -1,11 +1,12 @@
 { fetchurl, jre, makeWrapper, stdenv }:
 
 stdenv.mkDerivation rec {
-  name = "drake-clj-${version}";
+  pname = "drake-clj";
   version = "1.0.3";
 
   src = fetchurl {
-    url = "https://github.com/Factual/drake/releases/download/${version}/drake.jar";
+    url =
+      "https://github.com/Factual/drake/releases/download/${version}/drake.jar";
     sha256 = "1bqnadjgi8h78aq2gwjcqcfg2pp0lkkywps2aw1g7dh0m44v3if9";
   };
 
@@ -22,7 +23,7 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = ''Data workflow tool, like a "Make for data"'';
-    homepage = https://github.com/Factual/drake;
+    homepage = "https://github.com/Factual/drake";
     license = licenses.epl10;
     maintainers = [ maintainers.xzfc ];
     platforms = platforms.all;

@@ -1,6 +1,6 @@
 { fetchFromGitHub, stdenv, openssl, zlib }:
 stdenv.mkDerivation rec {
-  name = "wrk2-${version}";
+  pname = "wrk2";
   version = "4.0.0-2018-03-03";
   src = fetchFromGitHub {
     owner = "giltene";
@@ -13,8 +13,9 @@ stdenv.mkDerivation rec {
     install -D wrk $out/bin/wrk2
   '';
   meta = {
-    description = "A constant throughput, correct latency recording variant of wrk";
-    homepage = https://github.com/giltene/wrk2;
+    description =
+      "A constant throughput, correct latency recording variant of wrk";
+    homepage = "https://github.com/giltene/wrk2";
     license = stdenv.lib.licenses.apache2;
     maintainers = [ stdenv.lib.maintainers.xzfc ];
     platforms = [ "x86_64-linux" ];

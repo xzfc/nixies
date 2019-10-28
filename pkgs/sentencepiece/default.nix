@@ -1,6 +1,6 @@
 { fetchFromGitHub, stdenv, cmake, pkgconfig }:
 stdenv.mkDerivation rec {
-  name = "sentencepiece-${version}";
+  pname = "sentencepiece";
   version = "0.1.81";
   src = fetchFromGitHub {
     owner = "google";
@@ -10,8 +10,9 @@ stdenv.mkDerivation rec {
   };
   buildInputs = [ cmake pkgconfig ];
   meta = {
-    description = "Unsupervised text tokenizer for Neural Network-based text generation.";
-    homepage = https://github.com/google/sentencepiece;
+    description =
+      "Unsupervised text tokenizer for Neural Network-based text generation.";
+    homepage = "https://github.com/google/sentencepiece";
     license = stdenv.lib.licenses.apache2;
     maintainers = [ stdenv.lib.maintainers.xzfc ];
     platforms = [ "x86_64-linux" ];

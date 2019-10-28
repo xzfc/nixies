@@ -1,6 +1,6 @@
 { fetchFromGitLab, makeWrapper, multiStdenv, stdenv }:
 multiStdenv.mkDerivation rec {
-  name = "libstrangle-${version}";
+  pname = "libstrangle";
   version = "0.0.4";
   src = fetchFromGitLab {
     owner = "torkel104";
@@ -22,7 +22,7 @@ multiStdenv.mkDerivation rec {
   '';
   meta = {
     description = "Frame rate limiter for Linux/OpenGL";
-    homepage = https://gitlab.com/torkel104/libstrangle;
+    homepage = "https://gitlab.com/torkel104/libstrangle";
     license = stdenv.lib.licenses.gpl3;
     maintainers = [ stdenv.lib.maintainers.xzfc ];
     platforms = [ "x86_64-linux" ];
