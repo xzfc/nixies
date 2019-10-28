@@ -11,6 +11,8 @@ rec {
   wrk2          = pkgs.callPackage ./pkgs/wrk2          {};
   xrandr        = pkgs.callPackage ./pkgs/xrandr        {};
 
+  imgbrd-grabber = pkgs.libsForQt5.callPackage ./pkgs/imgbrd-grabber {};
+
   sentencepiece-python = p:
     pkgs.callPackage ./pkgs/sentencepiece/python.nix {
       inherit sentencepiece;
@@ -22,6 +24,7 @@ rec {
     name = "xzfc-nix-everything";
     buildInputs = [
       biomake drake-clj libstrangle meritous pgquarrel powder sentencepiece typometer wrk2 xrandr
+      imgbrd-grabber
       (pkgs.python37.withPackages (p:[
         (sentencepiece-python p)
       ]))
